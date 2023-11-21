@@ -6,6 +6,7 @@ import {
   Inject,
   ViewChild,
   ElementRef,
+  OnDestroy,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
@@ -19,7 +20,7 @@ import { DOCUMENT } from '@angular/common';
   templateUrl: './combobox.component.html',
   styleUrls: ['./combobox.component.css'],
 })
-export class ComboboxComponent {
+export class ComboboxComponent implements OnDestroy {
   @Input() label: string = 'Combobox';
   @Input() labelClass: string = '';
   @Input() placeholder: string = 'Search';
@@ -47,6 +48,12 @@ export class ComboboxComponent {
     ComboboxComponent.idCounter++;
     ComboboxComponent.allComboboxes ??= [];
     ComboboxComponent.allComboboxes.push(this);
+  }
+
+  ngOnDestroy() {
+    ComboboxComponent.allComboboxes = ComboboxComponent.allComboboxes.filter(
+      (c) => c.id !== this.id
+    );
   }
 
   onClickDropdownIcon() {

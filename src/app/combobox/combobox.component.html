@@ -1,12 +1,30 @@
-<label [for]="'combobox-input-' + id" [class]="labelClass">{{ label }}</label>
-<div class="combobox" (click)="captureClicks($event)">
+<label [for]="'combobox-input-' + id" 
+  [class]="labelClass">
+  {{ label }}
+</label>
+<div class="combobox" 
+  (click)="captureClicks($event)">
   <div class="combobox-input-group">
-    <input [id]="'combobox-input-' + id" [class]="inputClass" type="text" role="combobox" aria-autocomplete="list"
-      [attr.aria-controls]="'combobox-input-' + id" [attr.aria-expanded]="isExpanded" [ngModel]="searchText"
-      (ngModelChange)="searchTextChange.emit($event)" (focus)="openListbox()" (keydown)="onInputKeydown($event)"
-      [attr.aria-activedescendant]="highlightedOption" [placeholder]="placeholder" #input>
-    <button [id]="'combobox-button' + id" tabindex="-1" [attr.aria-label]="listboxLabel" aria-expanded="false"
-      [attr.aria-controls]="'combobox-input-' + id" (click)="onClickDropdownIcon()">
+    <input [id]="'combobox-input-' + id" 
+      [class]="inputClass" 
+      type="text" 
+      role="combobox" 
+      aria-autocomplete="list"
+      [attr.aria-controls]="'combobox-listbox-' + id" 
+      [attr.aria-expanded]="isExpanded" 
+      [ngModel]="searchText"
+      (ngModelChange)="searchTextChange.emit($event)" 
+      (focus)="openListbox()" 
+      (keydown)="onInputKeydown($event)"
+      [attr.aria-activedescendant]="highlightedOption" 
+      [placeholder]="placeholder" 
+      #input>
+    <button [id]="'combobox-button' + id" 
+      tabindex="-1" 
+      [attr.aria-label]="listboxLabel" 
+      [attr.aria-expanded]="isExpanded"
+      [attr.aria-controls]="'combobox-listbox-' + id" 
+      (click)="onClickDropdownIcon()">
       <svg width="18" height="16" aria-hidden="true" focusable="false" style="forced-color-adjust: auto">
         <polygon class="arrow" [class.rotate]="isExpanded" stroke-width="0" fill-opacity="0.75" fill="currentcolor"
           points="3,6 15,6 9,14">
@@ -14,8 +32,13 @@
       </svg>
     </button>
   </div>
-  <ul [id]="'combobox-listbox-' + id" [class]="'listbox ' + listboxClass" [class.expanded]="isExpanded" role="listbox"
-    [attr.aria-label]="listboxLabel" (click)="listboxClick($event)" #listbox>
+  <ul [id]="'combobox-listbox-' + id" 
+    [class]="'listbox ' + listboxClass" 
+    [class.expanded]="isExpanded" 
+    role="listbox"
+    [attr.aria-label]="listboxLabel" 
+    (click)="listboxClick($event)" 
+    #listbox>
     <ng-content></ng-content>
   </ul>
 </div>
