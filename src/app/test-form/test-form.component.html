@@ -1,0 +1,22 @@
+<app-combobox [searchText]="searchText$.value" (searchTextChange)="searchText$.next($event)" label="Stations"
+  listboxLabel="SEPTA Stations" placeholder="Search for SEPTA Stations" labelClass="color-blue" inputClass="padding-3"
+  listboxClass="padding-3 station-listbox">
+  <li *ngIf="isLoading" role="presentation" class="listbox-presentation">Loading...</li>
+  <li *ngIf="!isLoading && stations.length === 0" role="presenattion" class="listbox-presentation">
+    No stations found
+  </li>
+  <li *ngIf="stations.length > 0" role="presentation" class="listbox-presentation">First 10</li>
+  <li *ngFor="let station of stations.slice(0, 10)" [id]="'li-' + station.slug" role="option" class="listbox-option"
+    (click)="selectOption(station.name)">
+    {{ station.name }}
+  </li>
+  <li *ngIf="stations.length > 10" role="presentation" class="listbox-presentation">All others</li>
+  <li *ngFor="let station of stations.slice(10)" [id]="'li-' + station.slug" role="option" class="listbox-option"
+    (click)="selectOption(station.name)">
+    {{ station.name }}
+  </li>
+</app-combobox>
+
+<div>
+  Selected Option: {{ selectedOption }}
+</div>

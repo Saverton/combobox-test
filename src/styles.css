@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+.color-blue {
+  color: blue;
+}
+
+.padding-3 {
+  padding: 1rem !important;
+}
+
+.station-listbox {
+  max-height: 450px;
+  overflow-y: auto;
+  box-shadow: 3px 3px 10px #777;
+  border-radius: 0 0 10px 10px;
+}

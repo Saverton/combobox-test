@@ -1,0 +1,19 @@
+.listbox-option {
+  cursor: pointer;
+}
+
+.listbox-option:hover {
+  background-color: #ccc;
+}
+
+.listbox-option.active-descendant {
+  outline: 2px solid #000;
+}
+
+.listbox-presentation {
+  font-weight: bold;
+  padding: 0.25rem 0;
+  margin: 0.25rem 0;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}

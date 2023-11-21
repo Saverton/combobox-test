@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+.combobox {
+  position: relative;
+  width: 400px;
+}
+
+.combobox-input-group {
+  position: relative;
+}
+
+.combobox-input-group input {
+  width: 100%;
+}
+
+.combobox-input-group button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  height: 100%;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.listbox {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+}
+
+.listbox.expanded {
+  display: block;
+}
+
+.arrow.rotate {
+  transform-origin: 50%;
+  transform: rotate(180deg) translateY(-4px);
+}
